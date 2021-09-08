@@ -57,7 +57,7 @@
         <version.checkstyle.plugin>3.0.0</version.checkstyle.plugin>
         <version.surefire.plugin>2.22.0</version.surefire.plugin>
 
-        <version.keycloak>12.0.4</version.keycloak>
+        <version.keycloak>13.0.1</version.keycloak>
 
     </properties>
 
@@ -131,50 +131,6 @@
                             <goal>check</goal>
                         </goals>
                         <phase>validate</phase>
-                    </execution>
-                </executions>
-
-            </plugin>
-
-            <plugin>
-
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>${version.pmd.plugin}</version>
-
-                <configuration>
-                    <sourceEncoding>utf-8</sourceEncoding>
-                    <minimumTokens>100</minimumTokens>
-                    <targetJdk>1.8</targetJdk>
-                    <rulesets>
-                        <ruleset>pmd.xml</ruleset>
-                    </rulesets>
-                    <excludeRoots>
-                        <excludeRoot>target/generated-sources</excludeRoot>
-                    </excludeRoots>
-                    <analysisCache>true</analysisCache>
-                </configuration>
-
-                <executions>
-                    <execution>
-                        <id>pmd-check</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        <configuration>
-                            <excludeFromFailureFile>exclude-pmd.properties</excludeFromFailureFile>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>cpd-check</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>cpd-check</goal>
-                        </goals>
-                        <configuration>
-                            <excludeFromFailureFile>exclude-cpd.properties</excludeFromFailureFile>
-                        </configuration>
                     </execution>
                 </executions>
 
