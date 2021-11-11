@@ -89,6 +89,7 @@ public class VKIdentityProvider
         user.setIdpConfig(getConfig());
         user.setIdp(this);
 
+        // Сохраняет json профиль в объект user
         AbstractJsonUserAttributeMapper.storeUserProfileForMapper(user, context, getConfig().getAlias());
 
         return user;
@@ -135,7 +136,7 @@ public class VKIdentityProvider
             String url = PROFILE_URL
                     + "?v=" + getConfig().getVersion()
                     + "&access_token=" + accessToken
-                    + "&user_ids=" + userId
+                    + (StringUtils.isNullOrEmpty(userId) ? "" : "&user_ids=" + userId)
                     + "&fields=screen_name"
                     + (getConfig().getFetchedFields().isEmpty() ? "" : "," + getConfig().getFetchedFields())
                     + "&name_case=Nom";
